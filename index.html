@@ -4,12 +4,12 @@
 
 <script>
 console.log("Hello world2");
+async function init() {
+	data = await d3.csv("Console Generation data.csv");
 
-data = await d3.csv("Console Generation data.csv");
-
-console.log("Hello world");
-console.log(data);
-
+	console.log("Hello world");
+	console.log(data);
+}
 
 </script>
 "Hello"
