@@ -1,18 +1,64 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle {fill: lightblue; stroke: black;}
+#dig {
+	opacity: 0;
+	position: absolute;
+	text-align: center;
+	width: 10px;
+	height: 10px;
+	background: pink;
+	border: 2px;
+	}
+</style>
 <body onload='init()'>
+<svg width=1000 height=1000> </svg>
+<div id = "dig"> </div>
 
 <script>
-console.log("Hello world2");
-async function init() {
-	data = await d3.csv("Console Generation data.csv");
 
-	console.log("Hello world");
+async function init(data) {
+	data = await d3.csv("https://ndetrempe.github.io/Console Generation data.csv");
+	
+	var nestedData = d3.nest()
+		.key(function(d) {return d.Generation + " Generation";})
+		.entries(data);
+	console.log(nestedData);
 	console.log(data);
+	var dig = d3.select("#dig");
+	d3.select("svg").append('g')
+		 .selectAll('circle')
+		 .data(nestedData)
+		 .enter()
+		 .append('circle')
+		 .attr('cx', function(d, i){return 500 + 300*Math.sin((-i/9)*2*Math.PI)})
+		 .attr('cy', function(d, i){return 450 + 300*Math.cos((-i/9)*2*Math.PI)})
+		 .attr('r', 60)
+		 .on("click", function(d, i){
+			 dig.style("opacity", 1)
+				.style("left", "100px")
+				.style("top", "100px")
+				.style("width", "800px")
+				  .style("height", "800px")
+				.html(updateData(d));
+				console.log(d.key);
+				})
+	d3.select("svg")
+		.on("click", function(){
+			if(d3.event.pageX > 900 || d3.event.pageX < 100 || d3.event.pageY > 900 || d3.event.pageY < 100){
+				console.log("yo mamma");
+				dig.style("opacity", 0)
+				   .style("width", "10px")
+				   .style("height", "10px")
+				   .html()
+			}
+		})
+}
+function updateData(data){
+	return data.key;
 }
 
 </script>
-Hello
 </body>
 </html>
 
