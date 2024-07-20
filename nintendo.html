@@ -1,0 +1,17 @@
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+
+<style>
+
+</style>
+<body onload='init()'>
+<svg width=1000 height=1000> </svg>
+<script>
+async function init(data) {
+
+	data = await d3.csv("https://ndetrempe.github.io/game_sales_data_update.csv");
+	console.log(data);
+}
+</script>
+</body>
+</html>
