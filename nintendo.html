@@ -2,32 +2,69 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 
 <style>
- circle {fill: lightblue; stroke: black;}
+ circle {stroke: black;}
+ 
+ #tooltip{ opacity: 0;
+        position: absolute;
+        text-align: center;
+        width: 80px; height; 40px;
+        background: lightgray;
+        border: 2px;
+}
 </style>
 <body onload='init()'>
 <svg width=1000 height=1000> </svg>
+<div id = "tooltip"></div>
+
+
 <script>
 
 xdomain = [1983,2020];//min and max numbers
-xrange = [100,900];//min and max areas
-ydomain = [0,90];
-yrange = [100,900];
+xrange = [200,800];//min and max areas
+ydomain = [1,90];
+yrange = [500,200];
+v_margin = 200;
+h_margin = 200;
 xs = d3.scaleLinear().domain(xdomain).range(xrange);
-ys = d3.scaleLinear().domain(ydomain).range(yrange);
+ys = d3.scaleLog().domain(ydomain).range(yrange);
+var color = {'Nintendo Entertainment System':'red', 'Super Nintendo Entertainment System':'blue',
+		'Nintendo Wii':'violet', 'Game Boy':'green',
+       'Nintendo DS':'aqua', 'Nintendo Switch':'brown',
+       'Super Nintendo Entertainment System':'cyan', 'Nintendo 3DS':'orange',
+       'Game Boy Advance':'lightblue', 'Nintendo 64':'LightGreen', 'Nintendo Wii U':'lightcoral',
+       'Nintendo GameCube':'olivedrab', 'Game Boy Color':'seagreen'}
+var tooltip = d3.select("#tooltip");
+
 async function init(data) {
 
 	data = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
-	//data = d3.csv("nintendo.csv");
 	console.log(data);
 	d3.select('svg').append('g')
+	 //.attr("transform", "translate("+h_margin+","+v_margin+")")
 	 .selectAll('circle')
 	 .data(data)
 	 .enter()
-	 .append('circle')
+	 .append('circle')	 
 	 .attr('cx', function(d){return xs(d.Year);})
 	 .attr('cy', function(d){return ys(d.Total_Shipped);})
-	 //.attr('r', '5px');
-	 .attr('r', function(d){return d.Critic_Score});
+	 .attr('r', '5px')
+	 .attr('fill', function(d){return color[d.Platform];})
+	 
+	 .on("mouseover", function(d){
+        tooltip.style("opacity", 1)
+        .style("left", (d3.event.pageX)+"px")
+        .style("top", (d3.event.pageY)+"px")
+        .html(d.Name + "</p>" + d.Total_Shipped + "</p>" + d.Year);
+    })
+
+	d3.select('svg').append('g')
+		.attr("transform", "translate(100, 100)")
+		.call(d3.axisLeft(ys).tickValues([0.1, 1, 10, 100]));
+		
+	d3.select('svg').append('g')
+	.attr("transform", "translate(0, 830)")
+		.call(d3.axisBottom(xs));
+
 }
 </script>
 </body>
