@@ -2,15 +2,32 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 
 <style>
-
+ circle {fill: lightblue; stroke: black;}
 </style>
 <body onload='init()'>
 <svg width=1000 height=1000> </svg>
 <script>
+
+xdomain = [1983,2020];//min and max numbers
+xrange = [100,900];//min and max areas
+ydomain = [0,90];
+yrange = [100,900];
+xs = d3.scaleLinear().domain(xdomain).range(xrange);
+ys = d3.scaleLinear().domain(ydomain).range(yrange);
 async function init(data) {
 
-	data = await d3.csv("https://ndetrempe.github.io/game_sales_data_update.csv");
+	data = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
+	//data = d3.csv("nintendo.csv");
 	console.log(data);
+	d3.select('svg').append('g')
+	 .selectAll('circle')
+	 .data(data)
+	 .enter()
+	 .append('circle')
+	 .attr('cx', function(d){return xs(d.Year);})
+	 .attr('cy', function(d){return ys(d.Total_Shipped);})
+	 //.attr('r', '5px');
+	 .attr('r', function(d){return d.Critic_Score});
 }
 </script>
 </body>
