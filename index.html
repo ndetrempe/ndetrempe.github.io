@@ -30,7 +30,7 @@ var tooltip = d3.select("#tooltip");
 var legend = d3.select("#legend");
 var svg = d3.select("#svg");
 var bs = d3.select("#bs");
-var state = 3;
+var state = 4;
 var nindata = {};
 var sonydata = {};
 var microdata = {};
@@ -39,7 +39,8 @@ async function init() {
 
 	nindata = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
 	sonydata = await d3.csv("https://ndetrempe.github.io/sony.csv");
-	sony();
+	microdata = await d3.csv("https://ndetrempe.github.io/microsoft.csv");
+	micro();
 }	
 
 function home(){
@@ -153,9 +154,9 @@ function nin(){
 	}
 function sony(){
 	console.log(sonydata);
-	xdomain = [1995,2020];//min and max numbers
+	xdomain = [1993,2020];//min and max numbers
 	xrange = [200,800];//min and max areas
-	ydomain = [1,32];
+	ydomain = [.01,17];
 	yrange = [800,200];
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
@@ -167,7 +168,7 @@ function sony(){
 		.attr("text-anchor", "middle")
 		.style('fill','black')
 		.style('font-size', '32px')
-		.text("Sony Console Video Game Sales");
+		.text("Sony Video Game Sales");
 	
 	svg.append('text')
 		.attr('x', 500)
@@ -183,7 +184,7 @@ function sony(){
 		.attr("text-anchor", "middle")
 		.style('fill','black')
 		.style('font-size', '18px')
-		.text("Note: games for handheld systems are not included.  Games with fewer than 1 million sales also not included.");
+		.text("Note: games for handheld systems and games from third party developers are not included");
 	
 	
 	svg.append('g')
@@ -207,7 +208,7 @@ function sony(){
 
 	svg.append('g')
 		.attr("transform", "translate(180, 0)")
-		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 30]).tickFormat(d3.format(",.2f")));
+		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 16]).tickFormat(d3.format(",.2f")));
 		
 	svg.append('g')
 	.attr("transform", "translate(0, 820)")
@@ -252,15 +253,11 @@ function sony(){
 function micro(){bs.html('<button onclick = "prev()">PREV</button>');}
 
 function prev(){
-	console.log(state);
 	if (state > 1){state--;}
-	console.log(state);
 	load();
 }
 function next(){
-	console.log(state);
 	if (state < 4){state++;}
-	console.log(state);
 	load();
 }	
 function load(){
