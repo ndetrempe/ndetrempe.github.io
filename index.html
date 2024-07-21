@@ -30,17 +30,23 @@ var tooltip = d3.select("#tooltip");
 var legend = d3.select("#legend");
 var svg = d3.select("#svg");
 var bs = d3.select("#bs");
-var state = 4;
+var state = 1;
 var nindata = {};
 var sonydata = {};
 var microdata = {};
+var topnindata = {};
+var topsonydata = {};
+var topmicrodata = {};
+var topdata = {};
 
 async function init() {
 
 	nindata = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
 	sonydata = await d3.csv("https://ndetrempe.github.io/sony.csv");
 	microdata = await d3.csv("https://ndetrempe.github.io/microsoft.csv");
-	micro();
+	topnindata = await d3.csv("https://ndetrempe.github.io/top_nintendo.csv");
+	state = 3;
+	top_nin();
 }	
 
 function home(){
@@ -51,6 +57,10 @@ function home(){
 		
 }
 
+
+function top_sony(){bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');}
+function top_micro(){bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');}
+function top_overall(){bs.html('<button onclick = "prev()">PREV</button>');}
 
 
 function nin(){
@@ -151,7 +161,108 @@ function nin(){
 		pos += 20;
 		}
 	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
-	}
+}
+	
+function top_nin(){
+	console.log(topnindata);
+	xdomain = [1983,2020];//min and max numbers
+	xrange = [200,800];//min and max areas
+	ydomain = [1,90];
+	yrange = [800,200];
+	xs = d3.scaleLinear().domain(xdomain).range(xrange);
+	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	var nincolor = {'Nintendo':'red', 'Capcom':'blue',
+				 'Ubisoft':'green', 'Electronic Arts':'purple', 'Activision':'darkorange',
+				 'Sega':'blue', 'Disney':'darkgray', 'Other': 'black'}
+
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 40)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '32px')
+		.text("Top Game Sales for Nintendo consoles");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 80)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("This data contains the top 400 selling games released for Nintendo consoles");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 120)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Note: This list contains games published by Nintendo and third party developers.");
+	
+	
+	svg.append('g')
+	 .selectAll('circle')
+	 .data(topnindata)
+	 .enter()
+	 .append('circle')	 
+	 .attr('cx', function(d){return xs(d.Year);})
+	 .attr('cy', function(d){return ys(d.Total_Shipped);})
+	 .attr('r', function(d){if (d.Critic_Score == ''){return '5';} else {return d.Critic_Score;}})
+	 .attr('fill', function(d){return nincolor[d.Publisher];})	 
+	 .on("mouseover", function(d){
+        tooltip.style("opacity", 1)
+        .style("left", (d3.event.pageX)+"px")
+        .style("top", (d3.event.pageY)+"px")
+        .html(d.Name + "</p>Released " + d.Year + "</p> Critic Score " + d.Critic_Score + '</p> Publisher: ' + d.Publisher);})		
+	 .on("mouseout", function() {
+        tooltip.style("opacity", 0)
+				.style("left", "0px")
+				.style("top", "0px")})
+
+	svg.append('g')
+		.attr("transform", "translate(180, 0)")
+		.call(d3.axisLeft(ys).tickValues([1, 10, 90]).tickFormat(d3.format(",.2f")));
+		
+	svg.append('g')
+	.attr("transform", "translate(0, 820)")
+		.call(d3.axisBottom(xs));
+		
+	svg.append('text')
+		.attr('class', "x label")
+		.attr('x', 450)
+		.attr('y', 860)
+		.text("Year game was released");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 10)
+		.attr('y', 500)
+		.text("Total copies shipped");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 50)
+		.attr('y', 520)
+		.text("(millions)");
+	
+	
+	pos = 200;
+	for (const obj in nincolor){
+		svg.append('circle')
+		.attr('cx', 840)
+		.attr('cy', pos)
+		.attr('r', 6)
+		.attr('fill', nincolor[obj]);
+		
+		svg.append('text')
+		.attr('x', 860)
+		.attr('y', pos + 5)
+		.style('fill', nincolor[obj])
+		.text(obj);
+		pos += 20;
+		}
+	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
+}
 function sony(){
 	xdomain = [1993,2020];//min and max numbers
 	xrange = [200,800];//min and max areas
@@ -347,7 +458,7 @@ function micro(){
 
 
 
-bs.html('<button onclick = "prev()">PREV</button>');
+bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
 }
 
 function prev(){
@@ -355,17 +466,21 @@ function prev(){
 	load();
 }
 function next(){
-	if (state < 4){state++;}
+	if (state < 8){state++;}
 	load();
-}	
+}
+	
 function load(){
 	d3.selectAll("svg > *").remove();
-	console.log("Switching based off of state "+state);
 	switch (state){
 		case 1: home(); break;
 		case 2: nin(); break;
-		case 3: sony(); break;
-		case 4: micro(); break;
+		case 3: top_nin(); break;
+		case 4: sony(); break;
+		case 5: top_sony(); break;
+		case 6: micro(); break;
+		case 7: top_micro(); break;
+		case 8: top_overall(); break;
 	}
 }
 </script>
