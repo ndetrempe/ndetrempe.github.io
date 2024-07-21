@@ -1,64 +1,186 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<style> circle {fill: lightblue; stroke: black;}
-#dig {
-	opacity: 0;
-	position: absolute;
-	text-align: center;
-	width: 10px;
-	height: 10px;
-	background: pink;
-	border: 2px;
-	}
+
+<style>
+ circle {stroke: black;}
+ rect {stroke: black;
+		fill: lightgray;}
+ 
+ #tooltip{ opacity: 0;
+        position: absolute;
+        text-align: center;
+        width: 200px; height: 150px;
+        background: white;
+        border: 2px;
+}
+ #bs{width: 200px; height: 100px;
+			left: 700px; top: 900px;
+			opacity: 1; text-align: center;
+			position: absolute;}
+
 </style>
 <body onload='init()'>
-<svg width=1000 height=1000> </svg>
-<div id = "dig"> </div>
-
+<svg width=1000 height=1000 id="svg"> </svg>
+<div id = "tooltip"></div>
+<div id = "legend"></div>
+<div id = 'bs'></div>
 <script>
 
-async function init(data) {
-	data = await d3.csv("https://ndetrempe.github.io/Console Generation data.csv");
-	
-	var nestedData = d3.nest()
-		.key(function(d) {return d.Generation + " Generation";})
-		.entries(data);
-	console.log(nestedData);
-	console.log(data);
-	var dig = d3.select("#dig");
-	d3.select("svg").append('g')
-		 .selectAll('circle')
-		 .data(nestedData)
-		 .enter()
-		 .append('circle')
-		 .attr('cx', function(d, i){return 500 + 300*Math.sin((-i/9)*2*Math.PI)})
-		 .attr('cy', function(d, i){return 450 + 300*Math.cos((-i/9)*2*Math.PI)})
-		 .attr('r', 60)
-		 .on("click", function(d, i){
-			 dig.style("opacity", 1)
-				.style("left", "100px")
-				.style("top", "100px")
-				.style("width", "800px")
-				  .style("height", "800px")
-				.html(updateData(d));
-				console.log(d.key);
-				})
-	d3.select("svg")
-		.on("click", function(){
-			if(d3.event.pageX > 900 || d3.event.pageX < 100 || d3.event.pageY > 900 || d3.event.pageY < 100){
-				console.log("yo mamma");
-				dig.style("opacity", 0)
-				   .style("width", "10px")
-				   .style("height", "10px")
-				   .html()
-			}
-		})
-}
-function updateData(data){
-	return data.key;
+var tooltip = d3.select("#tooltip");
+var legend = d3.select("#legend");
+var svg = d3.select("#svg");
+var bs = d3.select("#bs");
+var state = 1;
+var nindata = {};
+var microdata = {};
+
+async function init() {
+
+	nindata = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
+	console.log(nindata);
+	nin();
+}	
+
+function home(){
+	svg.append('text').attr('x', 500)
+		.attr('y', 500)
+		.text("Hello World");
+	bs.html('<button onclick = "next()">NEXT</button>');
+		
 }
 
+function micro(){bs.html('<button onclick = "prev()">PREV</button>');}
+
+
+
+
+
+
+
+function nin(){
+	xdomain = [1983,2020];//min and max numbers
+	xrange = [200,800];//min and max areas
+	ydomain = [.01,90];
+	yrange = [800,200];
+	xs = d3.scaleLinear().domain(xdomain).range(xrange);
+	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	var color = {'NES':'red', 'SNES':'black',
+				 'Nintendo 64':'green', 'Nintendo GameCube':'purple', 'Nintendo Wii':'darkorange',
+				 'Nintendo Wii U':'blue', 'Nintendo Switch':'gray'}
+
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 40)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '32px')
+		.text("Nintendo Video Game Sales");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 80)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("This data contains all games released by Nintendo for various console systems");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 120)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Note: games for handheld systems and games from third party developers are not included");
+	
+	
+	svg.append('g')
+	 .selectAll('circle')
+	 .data(nindata)
+	 .enter()
+	 .append('circle')	 
+	 .attr('cx', function(d){return xs(d.Year);})
+	 .attr('cy', function(d){return ys(d.Total_Shipped);})
+	 .attr('r', function(d){if (d.Critic_Score == ''){return '5';} else {return d.Critic_Score;}})
+	 .attr('fill', function(d){return color[d.Platform];})	 
+	 .on("mouseover", function(d){
+        tooltip.style("opacity", 1)
+        .style("left", (d3.event.pageX)+"px")
+        .style("top", (d3.event.pageY)+"px")
+        .html(d.Name + "</p>Released " + d.Year + "</p> Critic Score " + d.Critic_Score + '</p> Copies Shipped: ' + d.Total_Shipped + ' Million');})		
+	 .on("mouseout", function() {
+        tooltip.style("opacity", 0)
+				.style("left", "0px")
+				.style("top", "0px")})
+
+	svg.append('g')
+		.attr("transform", "translate(180, 0)")
+		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 100]).tickFormat(d3.format(",.2f")));
+		
+	svg.append('g')
+	.attr("transform", "translate(0, 820)")
+		.call(d3.axisBottom(xs));
+		
+	svg.append('text')
+		.attr('class', "x label")
+		.attr('x', 450)
+		.attr('y', 860)
+		.text("Year game was released");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 10)
+		.attr('y', 500)
+		.text("Total copies shipped");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 50)
+		.attr('y', 520)
+		.text("(millions)");
+	
+	
+	pos = 200;
+	for (const obj in color){
+		svg.append('circle')
+		.attr('cx', 840)
+		.attr('cy', pos)
+		.attr('r', 6)
+		.attr('fill', color[obj]);
+		
+		svg.append('text')
+		.attr('x', 860)
+		.attr('y', pos + 5)
+		.style('fill', color[obj])
+		.text(obj);
+		pos += 20;
+		}
+	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
+	}
+function sony(){bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');}
+function micro(){bs.html('<button onclick = "prev()">PREV</button>');}
+
+function prev(){
+	console.log(state);
+	if (state > 1){state--;}
+	console.log(state);
+	load();
+}
+function next(){
+	console.log(state);
+	if (state < 4){state++;}
+	console.log(state);
+	load();
+}	
+function load(){
+	d3.selectAll("svg > *").remove();
+	console.log("Switching based off of state "+state);
+	switch (state){
+		case 1: home(); break;
+		case 2: nin(); break;
+		case 3: sony(); break;
+		case 4: micro(); break;
+	}
+}
 </script>
 </body>
 </html>
-
