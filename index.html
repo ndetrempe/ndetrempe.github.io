@@ -32,13 +32,15 @@ var svg = d3.select("#svg");
 var bs = d3.select("#bs");
 var state = 1;
 var nindata = {};
+var sonydata = {};
 var microdata = {};
 
 async function init() {
 
 	nindata = await d3.csv("https://ndetrempe.github.io/nintendo.csv");
-	console.log(nindata);
-	nin();
+	sondata = await d3.csv("https://ndetrempe.github.io/sony.csv");
+	console.log(sonydata);
+	home();
 }	
 
 function home(){
@@ -156,7 +158,12 @@ function nin(){
 		}
 	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
 	}
-function sony(){bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');}
+function sony(){
+	console.log(sonydata);
+
+	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
+
+}
 function micro(){bs.html('<button onclick = "prev()">PREV</button>');}
 
 function prev(){
