@@ -44,7 +44,7 @@
 312,313,Guitar Hero III: Legends of Rock,Microsoft Xbox 360,RedOctane,Neversoft,8.7,,4.53,2007
 325,326,The Elder Scrolls IV: Oblivion,Microsoft Xbox 360,Take-Two Interactive,Bethesda Softworks,9.2,,4.47,2009
 336,337,Call of Duty: Advanced Warfare,Microsoft Xbox 360,Activision,High Moon Studios,9.1,,4.34,2014
-343,344,The Witcher 3: Wild Hunt,Microsoft Xbox One,Warner Bros. Interactive Entertainment,CD Projekt Red Studio,9.1,9.2,4.3,2015
+343,344,The Witcher 3: Wild Hunt,Microsoft Xbox One,Warner Bros,CD Projekt Red Studio,9.1,9.2,4.3,2015
 352,353,Assassin's Creed: Revelations,Microsoft Xbox 360,Ubisoft,Ubisoft Montreal,7.9,,4.22,2011
 359,359,FIFA Soccer 12,Microsoft Xbox 360,EA Sports,EA Canada,9.2,,4.18,2011
 365,365,Star Wars Battlefront (2015),Microsoft Xbox One,Electronic Arts,EA DICE,6.9,,4.15,2015
@@ -133,7 +133,7 @@
 828,827,Dead Island,Microsoft Xbox 360,Deep Silver,Techland,7.0,,2.38,2011
 832,831,Madden NFL 08,Microsoft Xbox 360,EA Sports,EA Tiburon,8.7,,2.37,2007
 841,840,Destiny 2,Microsoft Xbox One,Activision,Bungie,8.7,4.2,2.35,2017
-848,847,Lego Marvel Super Heroes,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,Traveller's Tales,,,2.34,2013
+848,847,Lego Marvel Super Heroes,Microsoft Xbox 360,Warner Bros,Traveller's Tales,,,2.34,2013
 851,850,Kinect Sports: Season Two,Microsoft Xbox 360,Microsoft,Rare Ltd.,6.6,,2.33,2011
 852,851,Madden NFL 25,Microsoft Xbox 360,EA Sports,EA Tiburon,7.8,,2.33,2013
 855,854,Assassin's Creed IV: Black Flag,Microsoft Xbox One,Ubisoft,Ubisoft Montreal,8.3,,2.32,2013
@@ -148,7 +148,7 @@
 929,928,FIFA 15,Microsoft Xbox One,EA Sports,EA Canada,7.9,5.4,2.19,2014
 930,929,Star Wars: Knights of the Old Republic,Microsoft Xbox,LucasArts,BioWare Corp.,9.4,10.0,2.19,2003
 944,943,PlayerUnknown's Battlegrounds,Microsoft Xbox One,Microsoft,PUBG Corporation,8.5,5.0,2.17,2017
-968,967,Mortal Kombat (2011),Microsoft Xbox 360,Warner Bros. Interactive Entertainment,NetherRealm Studios,8.6,,2.12,2011
+968,967,Mortal Kombat (2011),Microsoft Xbox 360,Warner Bros,NetherRealm Studios,8.6,,2.12,2011
 969,968,Project Gotham Racing,Microsoft Xbox,Microsoft,Bizarre Creations,8.4,,2.12,2001
 971,970,NBA 2K11,Microsoft Xbox 360,2K Sports,Visual Concepts,8.8,,2.11,2010
 975,974,Project Gotham Racing (JP weekly sales),Microsoft Xbox,Microsoft,Bizarre Creations,,,2.1,2002
@@ -180,7 +180,7 @@
 1115,1114,Need for Speed: Shift,Microsoft Xbox 360,Electronic Arts,Slightly Mad Studios,8.2,,1.91,2009
 1120,1119,Madden NFL 18,Microsoft Xbox One,EA Sports,EA Tiburon,8.8,4.5,1.91,2017
 1122,1121,Tomb Raider (2013),Microsoft Xbox 360,Square Enix,Crystal Dynamics,8.5,,1.9,2013
-1127,1126,Batman: Arkham Origins,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,Warner Bros. Interactive Entertainment,7.8,,1.9,2013
+1127,1126,Batman: Arkham Origins,Microsoft Xbox 360,Warner Bros,Warner Bros,7.8,,1.9,2013
 1148,1147,Madden NFL 06,Microsoft Xbox,EA Sports,EA Tiburon,8.8,,1.86,2005
 1163,1162,Forza Horizon 4,Microsoft Xbox One,Microsoft,Playground Games,9.2,7.9,1.84,2018
 1171,1170,The Elder Scrolls V: Skyrim Special Edition,Microsoft Xbox One,Bethesda Softworks,Bethesda Softworks,8.1,7.4,1.83,2016
@@ -192,7 +192,7 @@
 1227,1226,Kinect Star Wars,Microsoft Xbox 360,Microsoft,Terminal Reality,,,1.76,2012
 1232,1231,Star Wars Battlefront,Microsoft Xbox,LucasArts,Pandemic Studios,,,1.75,2004
 1240,1239,Crackdown,Microsoft Xbox 360,Microsoft,Realtime Worlds,8.4,7.0,1.75,2007
-1243,1242,Mortal Kombat X,Microsoft Xbox One,Warner Bros. Interactive Entertainment,NetherRealm Studios,8.6,7.5,1.74,2015
+1243,1242,Mortal Kombat X,Microsoft Xbox One,Warner Bros,NetherRealm Studios,8.6,7.5,1.74,2015
 1246,1245,NBA 2K15,Microsoft Xbox One,2K Sports,Visual Concepts,8.2,6.2,1.74,2014
 1247,1246,NBA 2K19,Microsoft Xbox One,2K Sports,Visual Concepts,8.3,2.8,1.74,2018
 1258,1257,Dishonored,Microsoft Xbox 360,Bethesda Softworks,Arkane Studios,9.2,,1.72,2013
@@ -202,7 +202,7 @@
 1291,1290,Tekken 6,Microsoft Xbox 360,Namco Bandai,Namco Bandai Games,7.8,,1.7,2009
 1298,1297,Saints Row IV,Microsoft Xbox 360,Deep Silver,Volition Inc.,7.3,,1.69,2013
 1302,1301,Need for Speed: Undercover,Microsoft Xbox 360,Electronic Arts,EA Vancouver,6.3,,1.69,2008
-1309,1308,LEGO Batman 2: DC Super Heroes,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,Traveller's Tales,,,1.69,2012
+1309,1308,LEGO Batman 2: DC Super Heroes,Microsoft Xbox 360,Warner Bros,Traveller's Tales,,,1.69,2012
 1310,1309,Far Cry 4,Microsoft Xbox One,Ubisoft,Ubisoft Montreal,8.5,7.6,1.68,2014
 1324,1323,Star Wars Battlefront II,Microsoft Xbox,LucasArts,Pandemic Studios,7.0,,1.67,2005
 1329,1328,PGR: Project Gotham Racing 2,Microsoft Xbox,Microsoft,Bizarre Creations,8.9,,1.67,2003
@@ -222,7 +222,7 @@
 1406,1405,LEGO Harry Potter: Years 1-4,Microsoft Xbox 360,Warner Bros. Interactive,Traveller's Tales,7.9,,1.59,2010
 1407,1406,Far Cry 2,Microsoft Xbox 360,Ubisoft,Ubisoft Montreal,8.5,,1.59,2008
 1412,1411,FIFA 16,Microsoft Xbox 360,EA Sports,EA Canada,9.0,,1.59,2015
-1419,1418,Batman: Arkham Knight,Microsoft Xbox One,Warner Bros. Interactive Entertainment,Rocksteady Studios,8.5,6.8,1.58,2015
+1419,1418,Batman: Arkham Knight,Microsoft Xbox One,Warner Bros,Rocksteady Studios,8.5,6.8,1.58,2015
 1441,1440,Mafia II,Microsoft Xbox 360,2K Games,Illusion Softworks,7.2,,1.56,2010
 1443,1442,Tom Clancy's Rainbow Six 3,Microsoft Xbox,Ubisoft,Ubisoft Montreal / Red Storm Entertainment,9.3,,1.55,2003
 1450,1449,Battlefield V,Microsoft Xbox One,Electronic Arts,EA DICE,7.8,2.6,1.55,2018
@@ -242,7 +242,7 @@
 1543,1542,Sonic's Ultimate Genesis Collection,Microsoft Xbox 360,Sega,Backbone Entertainment,8.1,,1.48,2009
 1554,1553,007: Quantum of Solace,Microsoft Xbox 360,Activision,Treyarch,6.6,,1.48,2008
 1558,1557,Tom Clancy's Splinter Cell: Pandora Tomorrow,Microsoft Xbox,Ubisoft,Ubisoft Shanghai,9.2,9.0,1.48,2004
-1565,1564,Dying Light,Microsoft Xbox One,Warner Bros. Interactive Entertainment,Techland,7.4,7.8,1.47,2016
+1565,1564,Dying Light,Microsoft Xbox One,Warner Bros,Techland,7.4,7.8,1.47,2016
 1566,1565,Fight Night Round 3,Microsoft Xbox 360,EA Sports,EA Chicago,8.6,,1.47,2006
 1567,1566,Ryse: Son of Rome,Microsoft Xbox One,Microsoft,Crytek,6.8,6.2,1.47,2013
 1570,1569,Forza Horizon 2,Microsoft Xbox One,Microsoft,Playground Games,8.6,8.3,1.46,2014
@@ -253,8 +253,8 @@
 1602,1601,Star Wars: The Force Unleashed II,Microsoft Xbox 360,LucasArts,LucasArts,6.3,,1.44,2010
 1608,1607,WWE SmackDown vs Raw 2008,Microsoft Xbox 360,THQ,Yuke's Media Creations,7.3,,1.43,2007
 1611,1610,Kinect Joy Ride,Microsoft Xbox 360,Microsoft,Big Park,5.6,,1.43,2010
-1621,1620,Middle-Earth: Shadow of Mordor,Microsoft Xbox One,Warner Bros. Interactive Entertainment,Monolith Productions,,,1.42,2014
-1632,1631,Injustice: Gods Among Us,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,NetherRealm Studios,8.2,,1.42,2013
+1621,1620,Middle-Earth: Shadow of Mordor,Microsoft Xbox One,Warner Bros,Monolith Productions,,,1.42,2014
+1632,1631,Injustice: Gods Among Us,Microsoft Xbox 360,Warner Bros,NetherRealm Studios,8.2,,1.42,2013
 1644,1643,Fight Night Round 4,Microsoft Xbox 360,EA Sports,EA Canada,8.7,,1.4,2009
 1645,1644,Spider-Man: The Movie,Microsoft Xbox,Activision,Treyarch,7.7,,1.4,2002
 1646,1645,Dead Space,Microsoft Xbox 360,Electronic Arts,EA Redwood Shores,8.9,,1.4,2008
@@ -281,7 +281,7 @@
 1755,1754,Alan Wake,Microsoft Xbox 360,Microsoft,Remedy Entertainment,8.3,,1.33,2010
 1769,1768,Skylanders Giants,Microsoft Xbox 360,Activision,Toys for Bob,8.0,,1.32,2012
 1770,1769,UFC Undisputed 2010,Microsoft Xbox 360,THQ,Yuke's Future Media Creators,8.6,,1.32,2010
-1782,1781,The LEGO Movie Videogame,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,TT Fusion,6.5,,1.32,2014
+1782,1781,The LEGO Movie Videogame,Microsoft Xbox 360,Warner Bros,TT Fusion,6.5,,1.32,2014
 1784,1783,FIFA 14,Microsoft Xbox One,EA Sports,EA Canada,9.1,5.8,1.31,2013
 1792,1791,[Prototype],Microsoft Xbox 360,Activision,Radical Entertainment,7.9,,1.31,2009
 1794,1793,The Beatles: Rock Band,Microsoft Xbox 360,MTV Games,Harmonix Music Systems,8.9,,1.31,2009
@@ -295,7 +295,7 @@
 1871,1870,Dark Souls,Microsoft Xbox 360,Namco Bandai,From Software,9.1,,1.26,2011
 1885,1884,Dead or Alive 4,Microsoft Xbox 360,Tecmo,Team Ninja,8.6,,1.25,2005
 1891,1890,Need for Speed: Most Wanted,Microsoft Xbox 360,Electronic Arts,Electronic Arts,8.4,,1.25,2005
-1905,1904,LEGO The Lord of the Rings,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,Unknown,6.8,,1.24,2012
+1905,1904,LEGO The Lord of the Rings,Microsoft Xbox 360,Warner Bros,Unknown,6.8,,1.24,2012
 1907,1906,Battlefield: Hardline,Microsoft Xbox One,Electronic Arts,EA DICE,,,1.24,2015
 1909,1908,Dark Souls III,Microsoft Xbox One,Namco Bandai Games,From Software,8.7,8.6,1.24,2016
 1913,1912,Star Wars Episode III: Revenge of the Sith,Microsoft Xbox,LucasArts,The Collective,,,1.24,2005
@@ -317,8 +317,8 @@
 2061,2060,Sniper: Ghost Warrior,Microsoft Xbox 360,City Interactive,City Interactive,4.3,,1.16,2010
 2062,2061,LEGO Star Wars: The Video Game,Microsoft Xbox,Eidos Interactive,Traveller's Tales,8.0,,1.16,2005
 2077,2076,Ninja Gaiden II,Microsoft Xbox 360,Microsoft,Team Ninja,8.2,,1.15,2008
-2081,2080,Middle-Earth: Shadow of War,Microsoft Xbox One,Warner Bros. Interactive Entertainment,Monolith Productions,,,1.15,2017
-2082,2081,Lego Marvel Super Heroes,Microsoft Xbox One,Warner Bros. Interactive Entertainment,Traveller's Tales,,,1.15,2013
+2081,2080,Middle-Earth: Shadow of War,Microsoft Xbox One,Warner Bros,Monolith Productions,,,1.15,2017
+2082,2081,Lego Marvel Super Heroes,Microsoft Xbox One,Warner Bros,Traveller's Tales,,,1.15,2013
 2096,2095,Mortal Kombat,Microsoft Xbox 360,Warner Bros. Interactive,NetherRealm Studios,8.3,,1.14,2011
 2105,2104,The Lord of the Rings: The Return of the King,Microsoft Xbox,Electronic Arts,"Hypnos Entertainment, Inc.",8.8,,1.14,2003
 2106,2105,Final Fantasy XV,Microsoft Xbox One,Square Enix,Square Enix,8.3,7.7,1.14,2016
@@ -370,7 +370,7 @@
 2402,2401,Just Cause 3,Microsoft Xbox One,Square Enix,Avalanche Studios,7.0,6.9,1.01,2015
 2405,2404,Madden NFL 16,Microsoft Xbox 360,EA Sports,EA Tiburon,8.0,,1.01,2015
 2411,2410,Prince of Persia,Microsoft Xbox 360,Ubisoft,Ubisoft Montreal,8.2,6.0,1.01,2008
-2412,2411,LEGO Jurassic World,Microsoft Xbox 360,Warner Bros. Interactive Entertainment,Traveller's Tales,,,1.01,2015
+2412,2411,LEGO Jurassic World,Microsoft Xbox 360,Warner Bros,Traveller's Tales,,,1.01,2015
 2413,2412,LEGO Harry Potter: Years 5-7,Microsoft Xbox 360,Warner Bros. Interactive,Traveller's Tales,8.0,,1.01,2011
 2414,2413,NBA 2K10,Microsoft Xbox 360,2K Sports,Visual Concepts,8.4,,1.01,2009
 2417,2416,Far Cry: Primal,Microsoft Xbox One,Ubisoft,Ubisoft Montreal,7.8,,1.0,2016
