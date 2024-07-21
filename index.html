@@ -153,7 +153,6 @@ function nin(){
 	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
 	}
 function sony(){
-	console.log(sonydata);
 	xdomain = [1993,2020];//min and max numbers
 	xrange = [200,800];//min and max areas
 	ydomain = [.01,17];
@@ -176,7 +175,7 @@ function sony(){
 		.attr("text-anchor", "middle")
 		.style('fill','black')
 		.style('font-size', '18px')
-		.text("This data contains all games released for various Sony console systems");
+		.text("This data contains all games released for Sony console systems");
 	
 	svg.append('text')
 		.attr('x', 500)
@@ -184,7 +183,7 @@ function sony(){
 		.attr("text-anchor", "middle")
 		.style('fill','black')
 		.style('font-size', '18px')
-		.text("Note: games for handheld systems and games from third party developers are not included");
+		.text("Note: games for handheld devices and games from third party developers are not included");
 	
 	
 	svg.append('g')
@@ -208,7 +207,7 @@ function sony(){
 
 	svg.append('g')
 		.attr("transform", "translate(180, 0)")
-		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 16]).tickFormat(d3.format(",.2f")));
+		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 17]).tickFormat(d3.format(",.2f")));
 		
 	svg.append('g')
 	.attr("transform", "translate(0, 820)")
@@ -250,7 +249,106 @@ function sony(){
 		}
 	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
 }
-function micro(){bs.html('<button onclick = "prev()">PREV</button>');}
+function micro(){
+	xdomain = [2000,2020];//min and max numbers
+	xrange = [200,800];//min and max areas
+	ydomain = [.01,25];
+	yrange = [800,200];
+	xs = d3.scaleLinear().domain(xdomain).range(xrange);
+	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	var soncolor = {'Microsoft Xbox':'red', 'Microsoft Xbox 360':'green', 'Microsoft Xbox One':'blue'}
+
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 40)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '32px')
+		.text("Microsoft Video Game Sales");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 80)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("This data contains all games released for various Microsoft console systems");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 120)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Note: games from third party developers are not included");
+	
+	
+	svg.append('g')
+	 .selectAll('circle')
+	 .data(microdata)
+	 .enter()
+	 .append('circle')	 
+	 .attr('cx', function(d){return xs(d.Year);})
+	 .attr('cy', function(d){return ys(d.Total_Shipped);})
+	 .attr('r', function(d){if (d.Critic_Score == ''){return '5';} else {return d.Critic_Score;}})
+	 .attr('fill', function(d){return soncolor[d.Platform];})	 
+	 .on("mouseover", function(d){
+        tooltip.style("opacity", 1)
+        .style("left", (d3.event.pageX)+"px")
+        .style("top", (d3.event.pageY)+"px")
+        .html(d.Name + "</p>Released " + d.Year + "</p> Critic Score " + d.Critic_Score + '</p> Copies Shipped: ' + d.Total_Shipped + ' Million');})		
+	 .on("mouseout", function() {
+        tooltip.style("opacity", 0)
+				.style("left", "0px")
+				.style("top", "0px")})
+
+	svg.append('g')
+		.attr("transform", "translate(180, 0)")
+		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 20, 25]).tickFormat(d3.format(",.2f")));
+		
+	svg.append('g')
+	.attr("transform", "translate(0, 820)")
+		.call(d3.axisBottom(xs));
+		
+	svg.append('text')
+		.attr('class', "x label")
+		.attr('x', 450)
+		.attr('y', 860)
+		.text("Year game was released");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 10)
+		.attr('y', 500)
+		.text("Total copies shipped");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 50)
+		.attr('y', 520)
+		.text("(millions)");
+	
+	
+	pos = 200;
+	for (const obj in soncolor){
+		svg.append('circle')
+		.attr('cx', 840)
+		.attr('cy', pos)
+		.attr('r', 6)
+		.attr('fill', soncolor[obj]);
+		
+		svg.append('text')
+		.attr('x', 860)
+		.attr('y', pos + 5)
+		.style('fill', soncolor[obj])
+		.text(obj);
+		pos += 20;
+		}
+
+
+
+bs.html('<button onclick = "prev()">PREV</button>');
+}
 
 function prev(){
 	if (state > 1){state--;}
