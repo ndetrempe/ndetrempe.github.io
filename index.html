@@ -1,5 +1,6 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.js"></script>
 
 <style>
  circle {stroke: black;}
@@ -47,21 +48,181 @@ async function init() {
 	topnindata = await d3.csv("https://ndetrempe.github.io/top_nintendo.csv");
 	topsonydata = await d3.csv("https://ndetrempe.github.io/top_sony.csv");
 	topmicrodata = await d3.csv("https://ndetrempe.github.io/top_micro.csv");
-	state = 7;
-	top_micro();
+	topdata = await d3.csv("https://ndetrempe.github.io/top_games.csv");
+	state = 1;
+	home();
 }	
 
 function home(){
-	svg.append('text').attr('x', 500)
-		.attr('y', 500)
-		.text("Hello World");
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 40)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '32px')
+		.text("Video games sales per console manufacturer");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 80)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo, Sony and Microsoft are the most successful video game console manufacturers for sales in the US.");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 120)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Click NEXT to review game sales data for each series of consoles");
 	bs.html('<button onclick = "next()">NEXT</button>');
+	
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 200)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '24px')
+		.text("Nintendo Console Systems");
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 240)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("NES - Released 1985");
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 265)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("SNES - Released 1990");
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 290)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo 64 - Released 1996");	
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 315)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo Game Cube - Released 2001");	
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 340)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo Wii - Released 2006");
 		
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 365)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo Wii U - Released 2012");
+
+	svg.append('text')
+		.attr('x', 100)
+		.attr('y', 390)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Nintendo Switch - Released 2017");	
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 200)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '24px')
+		.text("Sony Console Systems");
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 240)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Playstation - Released 1994");
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 265)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Playstation 2 - Released 2000");
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 290)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Playstation 3 - Released 2006");	
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 315)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Playstation 4 - Released 2013");	
+
+	svg.append('text')
+		.attr('x', 450)
+		.attr('y', 340)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Playstation 5 - Released 2020");		
 }
 
+	svg.append('text')
+		.attr('x', 800)
+		.attr('y', 200)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '24px')
+		.text("Microsoft Console Systems");
 
+	svg.append('text')
+		.attr('x', 800)
+		.attr('y', 240)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Xbox - Released 2001");
 
-function top_overall(){bs.html('<button onclick = "prev()">PREV</button>');}
+	svg.append('text')
+		.attr('x', 800)
+		.attr('y', 265)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Xbox 360 - Released 2005");
+
+	svg.append('text')
+		.attr('x', 800)
+		.attr('y', 290)
+		.attr("text-anchor", "left")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Xbox one - Released 2013");
 
 
 function nin(){
@@ -71,6 +232,30 @@ function nin(){
 	yrange = [800,200];
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	const annotations = [
+	  {
+		note: {label: "Wii sports shipped 82.9 copies, this is more than double the second place game"},
+		x: 567,
+		y: 204,
+		dy: 5,
+		dx: -40
+	  },
+	  {
+		note: {label: "Super Mario brothers, one of the earliest games, shipped the second most copies"},
+		x: 240,
+		y: 250,
+		dy: -5,
+		dx: 20
+	  },
+	  {
+	  	note: {label: "The New Tetris had a critic rating of 8.8 but only sold 290,000 copies"},
+		x: 457,
+		y: 575,
+		dy: 10,
+		dx: -100
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations)
 	var nincolor = {'NES':'red', 'SNES':'black',
 				 'Nintendo 64':'green', 'Nintendo GameCube':'purple', 'Nintendo Wii':'darkorange',
 				 'Nintendo Wii U':'blue', 'Nintendo Switch':'gray'}
@@ -108,8 +293,8 @@ function nin(){
 	 .attr('cx', function(d){return xs(d.Year);})
 	 .attr('cy', function(d){return ys(d.Total_Shipped);})
 	 .attr('r', function(d){if (d.Critic_Score == ''){return '5';} else {return d.Critic_Score;}})
-	 .attr('fill', function(d){return nincolor[d.Platform];})	 
-	 .on("mouseover", function(d){
+	 .attr('fill', function(d){return nincolor[d.Platform];})
+	 .on("mouseover", function(d){//console.log(d3.event.pageX);console.log(d3.event.pageY);
         tooltip.style("opacity", 1)
         .style("left", (d3.event.pageX)+"px")
         .style("top", (d3.event.pageY)+"px")
@@ -117,11 +302,14 @@ function nin(){
 	 .on("mouseout", function() {
         tooltip.style("opacity", 0)
 				.style("left", "0px")
-				.style("top", "0px")})
-
+				.style("top", "0px")});
+	 
+	svg.append('g').call(makeAnnotations);
+	
+	
 	svg.append('g')
 		.attr("transform", "translate(180, 0)")
-		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 100]).tickFormat(d3.format(",.2f")));
+		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 90]).tickFormat(d3.format(",.2f")));
 		
 	svg.append('g')
 	.attr("transform", "translate(0, 820)")
@@ -171,6 +359,26 @@ function top_nin(){
 	yrange = [800,200];
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	const annotations = [
+	  {
+		note: {label: "Wii sports shipped 82.9 copies, this is more than double the second place game",
+				wrap: 150},
+		x: 567,
+		y: 204,
+		dy: 0,
+		dx: 40
+	  },
+	  {
+		note: {label: "A majority of the top selling games are published by Nintendo",
+				wrap: 150,
+				padding: 0},
+		x: 300,
+		y: 200,
+		dy: 0,
+		dx: 0
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
 	var nincolor = {'Nintendo':'red', 'Capcom':'blue',
 				 'Ubisoft':'green', 'Electronic Arts':'purple', 'Activision':'darkorange',
 				 'Sega':'blue', 'Disney':'darkgray', 'Other': 'black'}
@@ -219,6 +427,8 @@ function top_nin(){
 				.style("left", "0px")
 				.style("top", "0px")})
 
+	svg.append('g').call(makeAnnotations);
+	
 	svg.append('g')
 		.attr("transform", "translate(180, 0)")
 		.call(d3.axisLeft(ys).tickValues([1, 10, 90]).tickFormat(d3.format(",.2f")));
@@ -271,7 +481,26 @@ function sony(){
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
 	var soncolor = {'Sony PlayStation':'red', 'Sony PlayStation 2':'green', 'Sony PlayStation 3':'blue', 'Sony Playstation 4': 'purple'}
-
+	const annotations = [
+	  {
+		note: {label: "The top game only sold 16.25 million copies",
+				wrap: 60},
+		x: 720,
+		y: 204,
+		dy: -70,
+		dx: 140
+	  },
+	  {
+		note: {label: "Even with a critic score of 9.0, The Last Guy only sold 30,000 copies",
+				wrap: 150,
+				padding: 0},
+		x: 540,
+		y: 710,
+		dy: 20,
+		dx: 250
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
 	svg.append('text')
 		.attr('x', 500)
 		.attr('y', 40)
@@ -315,7 +544,9 @@ function sony(){
         tooltip.style("opacity", 0)
 				.style("left", "0px")
 				.style("top", "0px")})
-
+				
+	svg.append('g').call(makeAnnotations);
+	
 	svg.append('g')
 		.attr("transform", "translate(180, 0)")
 		.call(d3.axisLeft(ys).tickValues([0.01, 0.1, 1, 10, 17]).tickFormat(d3.format(",.2f")));
@@ -371,7 +602,26 @@ function top_sony(){
 	var sonycolor = {'Sony':'red', 'Electronic Arts':'blue',
 				 'EA Sports':'green', 'Activision':'purple', 'Ubisoft':'darkorange',
 				 'Konami':'blue', 'THQ':'darkgray', 'Rockstar Games':'slateblue','Other': 'black'}
-
+	const annotations = [
+	  {
+		note: {label: "Several top selling games were published by Rockstar Games with the Grand Theft Auto series",
+				wrap: 150},
+		x: 640,
+		y: 300,
+		dy: -45,
+		dx: -45
+	  },
+	  {
+		note: {label: "A majority of the top selling games are published by third parties",
+				wrap: 150,
+				padding: 0},
+		x: 220,
+		y: 240,
+		dy: 0,
+		dx: 0
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
 	svg.append('text')
 		.attr('x', 500)
 		.attr('y', 40)
@@ -424,6 +674,8 @@ function top_sony(){
 	.attr("transform", "translate(0, 820)")
 		.call(d3.axisBottom(xs));
 		
+	svg.append('g').call(makeAnnotations);
+	
 	svg.append('text')
 		.attr('class', "x label")
 		.attr('x', 450)
@@ -472,7 +724,27 @@ function micro(){
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
 	var soncolor = {'Microsoft Xbox':'red', 'Microsoft Xbox 360':'green', 'Microsoft Xbox One':'blue'}
-
+	const annotations = [
+	  {
+		note: {label: "Kinect Aventures is the top distributed game with 24 million copies",
+				wrap: 150,
+				padding:0},
+		x: 500,
+		y: 200,
+		dy: 0,
+		dx: 120
+	  },
+	  {
+		note: {label: "Microsoft had fewer games published than Sony or Nintendo",
+				wrap: 150,
+				padding: 0},
+		x: 220,
+		y: 200,
+		dy: 0,
+		dx: 0
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
 	svg.append('text')
 		.attr('x', 500)
 		.attr('y', 40)
@@ -542,6 +814,8 @@ function micro(){
 		.attr('x', 50)
 		.attr('y', 520)
 		.text("(millions)");
+		
+	svg.append('g').call(makeAnnotations);
 	
 	
 	pos = 200;
@@ -572,7 +846,27 @@ function top_micro(){
 	var sonycolor = {'Microsoft':'red', 'Electronic Arts':'blue',
 				 'EA Sports':'green', 'Activision':'purple', 'Ubisoft':'darkorange',
 				 'Warner Bros':'blue', '2K sports':'darkgray', 'Rockstar Games':'slateblue','Other': 'black'}
-
+		const annotations = [
+	  {
+		note: {label: "Kinect Aventures is still the top distributed game.",
+				wrap: 150,
+				padding: 0},
+		x: 500,
+		y: 200,
+		dy: 0,
+		dx: 120
+	  },
+	  {
+		note: {label: "Activision had several high selling games with the Call of Duty series.",
+				wrap: 150,
+				padding: 0},//x 220, y 200
+		x: 400,
+		y: 300,
+		dy: -50,
+		dx: -50
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
 	svg.append('text')
 		.attr('x', 500)
 		.attr('y', 40)
@@ -643,6 +937,139 @@ function top_micro(){
 		.attr('y', 520)
 		.text("(millions)");
 	
+	svg.append('g').call(makeAnnotations);
+	
+	pos = 200;
+	for (const obj in sonycolor){
+		svg.append('circle')
+		.attr('cx', 840)
+		.attr('cy', pos)
+		.attr('r', 6)
+		.attr('fill', sonycolor[obj]);
+		
+		svg.append('text')
+		.attr('x', 860)
+		.attr('y', pos + 5)
+		.style('fill',sonycolor[obj])
+		.text(obj);
+		pos += 20;
+		}
+	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
+}
+function top_overall(){
+	xdomain = [1984,2020];//min and max numbers
+	xrange = [200,800];//min and max areas
+	ydomain = [2.5,85];
+	yrange = [800,200];
+	xs = d3.scaleLinear().domain(xdomain).range(xrange);
+	ys = d3.scaleLog().domain(ydomain).range(yrange);
+	var sonycolor = {'Nintendo':'red', 'Electronic Arts':'blue',
+				 'EA Sports':'green', 'Activision':'purple', 'Ubisoft':'darkorange',
+				 'Sony':'blue', 'Sony':'darkgray', 'Rockstar Games':'slateblue',
+				 'Microsoft':'brown', 'Other': 'black'}
+	
+	const annotations = [
+	  {
+		note: {label: "Wii sports is still the top shipping game",
+				wrap: 150,
+				padding: 0},
+		x: 567,
+		y: 204,
+		dy: -20,
+		dx: 40
+	  },
+	  {
+		note: {label: "A majority of the top selling games are published by Nintendo",
+				wrap: 150,
+				padding: 0},
+		x: 300,
+		y: 250,
+		dy: 0,
+		dx: 0
+	  },
+	  {
+	  	note: {label: "Call of Duty: Modern Warfare is the highest shipping game by a publisher other than Nintendo",
+				wrap: 150,
+				padding: 0},
+		x: 780,
+		y: 370,
+		dy: -25,
+		dx: -5
+	  }
+	];
+	const makeAnnotations = d3.annotation().annotations(annotations);
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 40)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '32px')
+		.text("Top Game Sales for All Console Games");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 80)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("This data contains the top 500 selling games released for Nintendo, Sony, and Microsoft consoles");
+	
+	svg.append('text')
+		.attr('x', 500)
+		.attr('y', 120)
+		.attr("text-anchor", "middle")
+		.style('fill','black')
+		.style('font-size', '18px')
+		.text("Note: This list contains games published by console and third party developers.");
+	
+	
+	svg.append('g')
+	 .selectAll('circle')
+	 .data(topdata)
+	 .enter()
+	 .append('circle')	 
+	 .attr('cx', function(d){return xs(d.Year);})
+	 .attr('cy', function(d){return ys(d.Total_Shipped);})
+	 .attr('r', function(d){if (d.Critic_Score == ''){return '5';} else {return d.Critic_Score;}})
+	 .attr('fill', function(d){return sonycolor[d.Publisher];})	 
+	 .on("mouseover", function(d){
+        tooltip.style("opacity", 1)
+        .style("left", (d3.event.pageX)+"px")
+        .style("top", (d3.event.pageY)+"px")
+        .html(d.Name + "</p>Console: " + d.Platform + "</p> Critic Score: " + d.Critic_Score + '</p> Publisher: ' + d.Publisher);})		
+	 .on("mouseout", function() {
+        tooltip.style("opacity", 0)
+				.style("left", "0px")
+				.style("top", "0px")})
+
+	svg.append('g')
+		.attr("transform", "translate(180, 0)")
+		.call(d3.axisLeft(ys).tickValues([2.5, 10, 50, 85]).tickFormat(d3.format(",.2f")));
+		
+	svg.append('g')
+	.attr("transform", "translate(0, 820)")
+		.call(d3.axisBottom(xs));
+		
+	svg.append('text')
+		.attr('class', "x label")
+		.attr('x', 450)
+		.attr('y', 860)
+		.text("Year game was released");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 10)
+		.attr('y', 500)
+		.text("Total copies shipped");
+		
+	svg.append('text')
+		.attr('class', "y label")
+		.attr('x', 50)
+		.attr('y', 520)
+		.text("(millions)");
+	
+	svg.append('g').call(makeAnnotations);
 	
 	pos = 200;
 	for (const obj in sonycolor){
@@ -660,9 +1087,8 @@ function top_micro(){
 		pos += 20;
 		}
 
-
-	bs.html('<button onclick = "prev()">PREV</button> <button onclick = "next()">NEXT</button>');
-}
+	bs.html('<button onclick = "prev()">PREV</button>');
+	}
 
 
 function prev(){
