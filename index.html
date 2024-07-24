@@ -144,7 +144,7 @@ function home(){
 		.text("Nintendo Switch - Released 2017");	
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 200)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -152,7 +152,7 @@ function home(){
 		.text("Sony Console Systems");
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 240)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -160,7 +160,7 @@ function home(){
 		.text("Playstation - Released 1994");
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 265)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -168,7 +168,7 @@ function home(){
 		.text("Playstation 2 - Released 2000");
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 290)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -176,7 +176,7 @@ function home(){
 		.text("Playstation 3 - Released 2006");	
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 315)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -184,7 +184,7 @@ function home(){
 		.text("Playstation 4 - Released 2013");	
 
 	svg.append('text')
-		.attr('x', 450)
+		.attr('x', 420)
 		.attr('y', 340)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -193,7 +193,7 @@ function home(){
 }
 
 	svg.append('text')
-		.attr('x', 800)
+		.attr('x', 700)
 		.attr('y', 200)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -201,7 +201,7 @@ function home(){
 		.text("Microsoft Console Systems");
 
 	svg.append('text')
-		.attr('x', 800)
+		.attr('x', 700)
 		.attr('y', 240)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -209,7 +209,7 @@ function home(){
 		.text("Xbox - Released 2001");
 
 	svg.append('text')
-		.attr('x', 800)
+		.attr('x', 700)
 		.attr('y', 265)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -217,7 +217,7 @@ function home(){
 		.text("Xbox 360 - Released 2005");
 
 	svg.append('text')
-		.attr('x', 800)
+		.attr('x', 700)
 		.attr('y', 290)
 		.attr("text-anchor", "left")
 		.style('fill','black')
@@ -600,8 +600,8 @@ function top_sony(){
 	xs = d3.scaleLinear().domain(xdomain).range(xrange);
 	ys = d3.scaleLog().domain(ydomain).range(yrange);
 	var sonycolor = {'Sony':'red', 'Electronic Arts':'blue',
-				 'EA Sports':'green', 'Activision':'purple', 'Ubisoft':'darkorange',
-				 'Konami':'blue', 'THQ':'darkgray', 'Rockstar Games':'slateblue','Other': 'black'}
+				 'EA Sports':'green', 'Activision':'purple', 'Rockstar Games':'darkorange',
+				 'Konami':'blue', 'THQ':'darkgray', 'Ubisoft':'slateblue','Other': 'black'}
 	const annotations = [
 	  {
 		note: {label: "Several top selling games were published by Rockstar Games with the Grand Theft Auto series",
@@ -859,9 +859,9 @@ function top_micro(){
 	  {
 		note: {label: "Activision had several high selling games with the Call of Duty series.",
 				wrap: 150,
-				padding: 0},//x 220, y 200
-		x: 400,
-		y: 300,
+				padding: 0},
+		x: 460,
+		y: 310,
 		dy: -50,
 		dx: -50
 	  }
